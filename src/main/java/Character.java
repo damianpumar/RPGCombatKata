@@ -1,4 +1,7 @@
 public class Character {
+    private final int MAX_HEALTH = 1000;
+    private final int MIN_HEALTH = 0;
+
     private final int START_HEALTH = 1000;
     private final int START_LEVEL = 1;
 
@@ -23,15 +26,17 @@ public class Character {
     public void dealDamage(Character character, int damage) {
         character.health -= damage;
 
-        if (character.health < 0)
-            character.health = 0;
+        if (character.health < MIN_HEALTH)
+            character.health = MIN_HEALTH;
     }
 
     public void heal(Character character, int health) {
-        if (character.isAlive() && character.health() <= START_HEALTH)
-            character.health += health;
+        if (!character.isAlive())
+            return;
 
-        if (character.health > START_HEALTH)
-            character.health = START_HEALTH;
+        character.health += health;
+
+        if (character.health > MAX_HEALTH)
+            character.health = MAX_HEALTH;
     }
 }
