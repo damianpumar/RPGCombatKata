@@ -52,4 +52,14 @@ public class CharacterShould {
 
         assertThat(otherCharacter.health()).isEqualTo(0);
     }
+
+    @Test
+    public void heal_other_character() {
+        Character otherCharacter = new Character();
+        character.dealDamage(otherCharacter, 100);
+
+        character.heal(otherCharacter, 50);
+
+        assertThat(otherCharacter.health()).isEqualTo(950);
+    }
 }

@@ -26,4 +26,8 @@ public class Character {
         if(character.health < 0)
             character.health = 0;
     }
+
+    public void heal(Character character, int health) {
+        character.health+=health;
+    }
 }
