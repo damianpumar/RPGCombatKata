@@ -24,6 +24,9 @@ public class Character {
     }
 
     public void dealDamage(Character character, int damage) {
+        if(character.equals(this))
+            return;
+
         character.health -= damage;
 
         if (character.health < MIN_HEALTH)

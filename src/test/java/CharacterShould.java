@@ -36,6 +36,16 @@ public class CharacterShould {
     }
 
     @Test
+    public void not_deal_damage_to_itself(){
+        character.dealDamage(character, 400);
+
+        assertThat(character.health()).isEqualTo(1000);
+    }
+
+
+
+
+    @Test
     public void die_when_health_is_zero() {
         Character otherCharacter = new Character();
 
