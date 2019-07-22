@@ -20,4 +20,9 @@ public class CharacterShould {
     public void start_level_is_1() {
         assertThat(character.level()).isEqualTo(1);
     }
+
+    @Test
+    public void start_alive() {
+        assertThat(character.isAlive()).isTrue();
+    }
 }

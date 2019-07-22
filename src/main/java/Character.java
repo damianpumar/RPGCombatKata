@@ -15,4 +15,8 @@ public class Character {
     public int level() {
         return START_LEVEL;
     }
+
+    public boolean isAlive() {
+        return true;
+    }
 }
