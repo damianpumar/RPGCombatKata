@@ -25,4 +25,13 @@ public class CharacterShould {
     public void start_alive() {
         assertThat(character.isAlive()).isTrue();
     }
+    
+    @Test 
+    public void deal_damage_to_other_character() {
+        Character otherCharacter = new Character();
+
+        character.dealDamage(otherCharacter, 400);
+
+        assertThat(otherCharacter.health()).isEqualTo(600);
+    }
 }
