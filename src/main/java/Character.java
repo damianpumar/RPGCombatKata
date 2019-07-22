@@ -17,7 +17,7 @@ public class Character {
     }
 
     public boolean isAlive() {
-        return true;
+        return this.health > 0;
     }
 
     public void dealDamage(Character character, int damage) {

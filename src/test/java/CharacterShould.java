@@ -34,4 +34,13 @@ public class CharacterShould {
 
         assertThat(otherCharacter.health()).isEqualTo(600);
     }
+    
+    @Test 
+    public void die_when_health_is_zero() {
+        Character otherCharacter = new Character();
+
+        character.dealDamage(otherCharacter, 1001);
+
+        assertThat(otherCharacter.isAlive()).isFalse();
+    }
 }
