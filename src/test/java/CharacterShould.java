@@ -4,11 +4,11 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CharacterShould {
-    private Character character ;
+    private Character character;
 
     @Before
     public void setup() {
-      this.character = new Character();
+        this.character = new Character();
     }
 
     @Test
@@ -25,8 +25,8 @@ public class CharacterShould {
     public void start_alive() {
         assertThat(character.isAlive()).isTrue();
     }
-    
-    @Test 
+
+    @Test
     public void deal_damage_to_other_character() {
         Character otherCharacter = new Character();
 
@@ -34,8 +34,8 @@ public class CharacterShould {
 
         assertThat(otherCharacter.health()).isEqualTo(600);
     }
-    
-    @Test 
+
+    @Test
     public void die_when_health_is_zero() {
         Character otherCharacter = new Character();
 
@@ -43,8 +43,8 @@ public class CharacterShould {
 
         assertThat(otherCharacter.isAlive()).isFalse();
     }
-    
-    @Test 
+
+    @Test
     public void have_health_zero_when_damage_received_exceeds_current_health() {
         Character otherCharacter = new Character();
 
@@ -62,8 +62,8 @@ public class CharacterShould {
 
         assertThat(otherCharacter.health()).isEqualTo(950);
     }
-    
-    @Test 
+
+    @Test
     public void not_heal_character_when_is_dead() {
         Character otherCharacter = new Character();
         character.dealDamage(otherCharacter, 1001);
@@ -71,5 +71,14 @@ public class CharacterShould {
         character.heal(otherCharacter, 50);
 
         assertThat(otherCharacter.health()).isEqualTo(0);
+    }
+
+    @Test
+    public void not_heal_above_1000() {
+        Character otherCharacter = new Character();
+
+        character.heal(otherCharacter, 50);
+
+        assertThat(otherCharacter.health()).isEqualTo(1000);
     }
 }

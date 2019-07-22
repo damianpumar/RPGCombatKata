@@ -28,7 +28,10 @@ public class Character {
     }
 
     public void heal(Character character, int health) {
-        if (character.isAlive())
+        if (character.isAlive() && character.health() <= START_HEALTH)
             character.health += health;
+
+        if (character.health > START_HEALTH)
+            character.health = START_HEALTH;
     }
 }
