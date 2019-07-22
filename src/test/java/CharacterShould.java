@@ -24,7 +24,10 @@ public class CharacterShould {
 
     @Test
     public void deal_damage_to_other_character() {
-        Character otherCharacter = getCharacterWithDamageOf(400);
+        Character otherCharacter = new Character();
+        Character character = new Character();
+
+        character.dealDamage(otherCharacter, 400);
         assertThat(otherCharacter.health()).isEqualTo(600);
     }
 
@@ -49,34 +52,23 @@ public class CharacterShould {
 
     @Test
     public void heal_other_character() {
-        Character character = new Character();
-
-        Character otherCharacter = getCharacterWithDamageOf(100);
-
-        character.heal(otherCharacter, 50);
-
-        assertThat(otherCharacter.health()).isEqualTo(950);
+        Character character = getCharacterWithDamageOf(100);
+        character.heal(50);
+        assertThat(character.health()).isEqualTo(950);
     }
 
     @Test
     public void not_heal_character_when_is_dead() {
-        Character character = new Character();
-
-        Character otherCharacter = getCharacterWithDamageOf(1001);
-
-        character.heal(otherCharacter, 50);
-
-        assertThat(otherCharacter.health()).isEqualTo(0);
+        Character character = getCharacterWithDamageOf(1001);
+        character.heal(50);
+        assertThat(character.health()).isEqualTo(0);
     }
 
     @Test
     public void not_heal_above_1000() {
         Character character = new Character();
-        Character otherCharacter = new Character();
-
-        character.heal(otherCharacter, 50);
-
-        assertThat(otherCharacter.health()).isEqualTo(1000);
+        character.heal(50);
+        assertThat(character.health()).isEqualTo(1000);
     }
 
     private Character getCharacterWithDamageOf(int damage) {

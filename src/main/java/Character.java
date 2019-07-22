@@ -33,13 +33,13 @@ public class Character {
             character.health = MIN_HEALTH;
     }
 
-    public void heal(Character character, int health) {
-        if (!character.isAlive())
+    public void heal(int health) {
+        if (!this.isAlive())
             return;
 
-        character.health += health;
+        this.health += health;
 
-        if (character.health > MAX_HEALTH)
-            character.health = MAX_HEALTH;
+        if (this.health > MAX_HEALTH)
+            this.health = MAX_HEALTH;
     }
 }
