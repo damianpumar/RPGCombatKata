@@ -62,4 +62,14 @@ public class CharacterShould {
 
         assertThat(otherCharacter.health()).isEqualTo(950);
     }
+    
+    @Test 
+    public void not_heal_character_when_is_dead() {
+        Character otherCharacter = new Character();
+        character.dealDamage(otherCharacter, 1001);
+
+        character.heal(otherCharacter, 50);
+
+        assertThat(otherCharacter.health()).isEqualTo(0);
+    }
 }
