@@ -43,4 +43,13 @@ public class CharacterShould {
 
         assertThat(otherCharacter.isAlive()).isFalse();
     }
+    
+    @Test 
+    public void have_health_zero_when_damage_received_exceeds_current_health() {
+        Character otherCharacter = new Character();
+
+        character.dealDamage(otherCharacter, 1001);
+
+        assertThat(otherCharacter.health()).isEqualTo(0);
+    }
 }

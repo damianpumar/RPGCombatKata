@@ -22,5 +22,8 @@ public class Character {
 
     public void dealDamage(Character character, int damage) {
         character.health -= damage;
+
+        if(character.health < 0)
+            character.health = 0;
     }
 }
